@@ -1,5 +1,4 @@
 .DS_Store
-.gitignore
 .sass-cache/
 .travis.yml
 node_modules/
