@@ -1,9 +1,0 @@
-language: node_js
-node_js: node
-deploy:
-  provider: heroku
-  api_key:
-    secure: Y+DHZ4q7iMNrYrf/coEA8kzrqRonF54iFEQwLLCnt2Ad68A2qMv2YqxLQVB4qYBe6FEww5cstXW9ObmBxJVQIG82K2odlrmFxB/+ImMaq3FOc1fuw2c4E/5ay7CTDbCkH7MdSMZ1bTDYwpThXsy4EA1pBY0tBW8ETXZFPT/1WkhfTVYlu+zWCBDxxJeImSVvdS4N4GR/6fUXOzOWFFdv+Zf9SQa+y/XeeEW6DsFjV5IBmzDoG0SfxUDrtSz5wRLUNVEDW5S1X3FjzqhalBlSMnQbYsRQO9B9tomT3IXQJbrejk1GkHAHMeayfr+wHvAAyULnuoVpUGXgu7kPWd4ENaTGkFtRpk/bni8cXmIjCa6eGI29OVo+hAC/Fv8iitPxxVCeDuPX9iG62clw45jMP/hQq8d8WKamdKMNoAszMZs8eG6UN4gmDsb6YKRvBGfIj7YNZaSLdNeSGIIBl5sDahUM4fNzoWBBONO2K01sIoOoWijwkz8zbH0epyg59LGnXh6SwkupQIVdVUaOQK2CLTW1cvOVpofHZh3xVudYRJJIY+g6Pzqhney2cx0W68mWSneJBV6rPsZLy3QvphVEkHBfiV+FYigmEzcDc/lC+v+s4htJOz098uUzSBE2aTcciY64KP5lyIUzkSK4rtaBfdQAmJG929ZTamU7vvgM8S8=
-  app: shrouded-bayou-47963
-  on:
-    repo: kaseyllabelle/adopt-a-bull
