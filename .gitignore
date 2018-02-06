@@ -1,6 +1,5 @@
 .DS_Store
 .sass-cache/
-.travis.yml
 node_modules/
 sass/
 public/.DS_Store
