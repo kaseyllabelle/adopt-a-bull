@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
+const landingRouter = require('./routes/landing.router');
 const logInRouter = require('./routes/log-in.router');
-const mainRouter = require('./routes/main.router');
 const bodyParser = require('body-parser');
 
 app.use(bodyParser.json({ limit: '500kb', extended: true })); 
@@ -10,12 +10,8 @@ app.use(bodyParser.urlencoded({ limit: '500kb', extended: true }));
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
-app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/public/views/index.html');
-});
-
+app.use('/', landingRouter);
 app.use('/log-in', logInRouter);
-app.use('/main', mainRouter);
 
 let server;
 

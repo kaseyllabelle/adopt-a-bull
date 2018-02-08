@@ -4,9 +4,9 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
 const characteristicsSchema = mongoose.Schema({
-  type: String,
-  title: String,
-  content: [{type: String}]
+  type: String, // radio, checkbox, or input
+  characteristic: String,
+  values: [{type: String}] // array of strings
 });
 
 const Characteristics = mongoose.model('Characteristic', characteristicsSchema);

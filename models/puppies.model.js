@@ -4,15 +4,16 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
 const puppiesSchema = mongoose.Schema({
-  id: String,
-  photo: String, // is this the right type?
+  photo: String,
   name: String,
   gender: String,
   age: Number,
   size: String,
   biography: String,
-  shelterId: String,
-  distance: String // how do we collect the mileage/distance between the pup and the adopter?
+  shelterId: {
+  	type: mongoose.Schema.ObjectId, ref: 'Shelters'
+  },
+  distance: String
 });
 
 const Puppies = mongoose.model('Puppy', puppiesSchema);
