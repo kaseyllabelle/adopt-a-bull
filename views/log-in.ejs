@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<% include partials/head.ejs %>
+<body>
+	Sign up<br>
+		shelter/adopter<br>
+		email address<br>
+		password<br>
+		confirm password<br>
+	<br>
+	Sign in<br>
+		shelter/adopter (do we even need this?)<br>
+		email address<br>
+		password<br>
+		forgot password?<br>
+
+	<% if (accountType != 'shelter' && accountType != 'adopter') { %>
+		<button>Shelter</button>
+		<button>Adopter</button>
+	<% } %>
+
+	<% if (accountType === 'shelter') { %>
+		<div>
+			Shelters
+			<!-- form for shelters to sign up/in -->
+			<form>
+			</form>
+		</div>
+	<% } %>
+
+	<% if (accountType === 'adopter') { %>
+		<div>
+			Adopters
+			<!-- form for adopters to sign up/in -->
+		</div>
+	<% } %>
+</body>
+</html>

@@ -1,0 +1,66 @@
+{
+  "title": "11 things -- you won't believe #4", 
+  "author": {"firstName": "Billy", "lastName": "Smith"}, 
+  "content": "Lorem ipsum dolor."
+}
+
+{
+  "type": "",
+  "title": "", 
+  "content": {
+    "size": "",
+    "weight": "",
+
+  }
+}
+
+
+characteristics (optional)
+    size
+    weight
+    adoption fee (dollar amount or not specified)
+    training level
+      needs training
+      has basic training
+      well trained
+    house-broken
+      yes
+      no
+    crate-trained
+      yes
+      no
+    neutered/spayed
+      yes
+      no
+    vaccinated
+      yes
+      no
+    micro-chipped
+      yes
+      no
+    special needs
+      yes
+      no
+    compatibility
+      children
+      dogs
+      cats
+      kids
+      seniors
+      apartments
+    temperament
+      protective
+      playful
+      affectionate
+      gentle
+      timid
+      likes lap
+    energy level
+      low
+      moderate
+      high
+    activity level
+      not active
+      slightly active
+      moderately active
+      highly active

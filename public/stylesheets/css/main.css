@@ -1,18 +1,63 @@
 body {
+  height: 100vh;
+  margin: 0 auto;
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
   color: #2196F3; }
 
-.montserrat {
-  font-family: "Montserrat", sans-serif; }
+.welcome {
+  margin: 20px auto 0;
+  text-align: center; }
 
-.quicksand {
-  font-family: "Quicksand", sans-serif; }
+header {
+  padding: 20px 20px 15px;
+  background-color: #2196F3;
+  text-align: center; }
 
-.valera-round {
-  font-family: "Varela Round", sans-serif; }
+.container {
+  display: flex;
+  height: 100%; }
 
-.questrial {
-  font-family: "Questrial", sans-serif; }
+.settings,
+.list,
+.main {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  margin-top: 1px solid #2196F3; }
+
+.settings,
+.list {
+  flex-basis: 25%; }
+
+.main {
+  flex-basis: 50%;
+  align-items: center;
+  border-left: 1px solid #2196F3;
+  border-right: 1px solid #2196F3; }
+
+@media all and (max-width: 767px) {
+  .container {
+    height: auto;
+    flex-direction: column; }
+
+  .main {
+    order: 1;
+    border: none; }
+
+  .list {
+    order: 2;
+    border-top: 1px solid #2196F3;
+    border-bottom: 1px solid #2196F3; }
+
+  .settings {
+    order: 3; }
+
+  .main,
+  .settings,
+  .list {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: auto; } }
 
 /*# sourceMappingURL=main.css.map */

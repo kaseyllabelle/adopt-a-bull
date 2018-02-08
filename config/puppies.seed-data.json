@@ -1,0 +1,10 @@
+	pups
+		id
+		photo
+		name
+		gender
+		age
+		size
+		bio
+		shelter id
+		distance (#mi away)
