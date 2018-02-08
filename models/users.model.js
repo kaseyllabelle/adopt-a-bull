@@ -4,6 +4,9 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
 const usersSchema = mongoose.Schema({
+  created: {
+  	type: Date, default: Date.now
+  },
   email: String,
   password: String,
   shelterId: {

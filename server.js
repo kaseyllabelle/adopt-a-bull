@@ -1,7 +1,9 @@
 const express = require('express');
 const app = express();
+const mongoose = require('mongoose');
 const landingRouter = require('./routes/landing.router');
-const logInRouter = require('./routes/log-in.router');
+const userRouter = require('./routes/user.router');
+const mainRouter = require('./routes/main.router');
 const bodyParser = require('body-parser');
 
 app.use(bodyParser.json({ limit: '500kb', extended: true })); 
@@ -10,10 +12,21 @@ app.use(bodyParser.urlencoded({ limit: '500kb', extended: true }));
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
+app.use('/user', userRouter);
+app.use('/main', mainRouter);
 app.use('/', landingRouter);
-app.use('/log-in', logInRouter);
 
 let server;
+
+mongoose.connect('mongodb://kaseyllabelle:CHAI912fall@ds225078.mlab.com:25078/adopt-a-bull', (error) =>
+{
+  if(error)
+  {
+    console.error('Please make sure Mongodb is installed and running!', error); 
+    throw error;
+  }
+  console.log('Mongo running at');
+});
 
 function runServer(){
   const port = process.env.PORT || 8080;

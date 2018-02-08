@@ -2,12 +2,12 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  res.render('landing', {accountType:'default'});
+  res.render('main', {userType:'default'});
 });
 
-router.get('/:accountType', (req, res) => {
+router.get('/:userType', (req, res) => {
   console.log(req.params);
-  res.render('landing', {accountType: req.params.accountType});
+  res.render('main', {userType: req.params.userType});
 });
 
 module.exports = router;

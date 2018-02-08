@@ -4,6 +4,9 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
 const puppiesSchema = mongoose.Schema({
+  created: {
+    type: Date, default: Date.now
+  },
   photo: String,
   name: String,
   gender: String,

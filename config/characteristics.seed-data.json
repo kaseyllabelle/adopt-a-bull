@@ -1,24 +1,20 @@
 {
-  "title": "11 things -- you won't believe #4", 
-  "author": {"firstName": "Billy", "lastName": "Smith"}, 
-  "content": "Lorem ipsum dolor."
-}
-
+  "type": "radio",
+  "characteristic": "size", 
+  "value": ["S", "M", "L", "XL"]
+}, 
 {
-  "type": "",
-  "title": "", 
-  "content": {
-    "size": "",
-    "weight": "",
-
-  }
+  "type": "input",
+  "characteristic": "adoption fee", 
+  "value": ["$500"]
+},
+{
+  "type": "checkbox",
+  "characteristic": "compatibility", 
+  "value": ["kids", "dogs", "cats"]
 }
 
-
-characteristics (optional)
-    size
     weight
-    adoption fee (dollar amount or not specified)
     training level
       needs training
       has basic training
