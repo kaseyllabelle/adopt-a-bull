@@ -1,0 +1,51 @@
+.landing-container {
+  display: flex;
+  height: 100%; }
+
+.landing-image,
+.log-in {
+  display: flex;
+  flex-direction: column;
+  padding: 30px; }
+
+.landing-image {
+  flex-basis: 60%;
+  align-items: center;
+  border-right: 2px solid #2196F3;
+  background-image: url("/images/landing.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover; }
+
+.description {
+  text-align: left; }
+
+.log-in {
+  flex-basis: 40%; }
+
+.sign-up-sign-in {
+  margin-bottom: 35px; }
+
+a.forgot-password {
+  margin: -23px 0 40px 0;
+  font-size: 12px; }
+
+@media all and (max-width: 767px) {
+  .landing-container {
+    height: auto;
+    flex-direction: column; }
+
+  .landing-image {
+    min-height: 300px;
+    border-right: none;
+    border-bottom: 2px solid #2196F3; }
+
+  p.description {
+    font-size: 18px; }
+
+  .log-in {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: auto; } }
+
+/*# sourceMappingURL=landing.css.map */

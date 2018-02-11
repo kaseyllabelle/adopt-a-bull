@@ -1,9 +1,13 @@
+'use strict';
+
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const landingRouter = require('./routes/landing.router');
 const userRouter = require('./routes/user.router');
 const mainRouter = require('./routes/main.router');
+// delete icons
+const iconsRouter = require('./routes/icons.router');
 const bodyParser = require('body-parser');
 
 app.use(bodyParser.json({ limit: '500kb', extended: true })); 
@@ -14,6 +18,8 @@ app.use(express.static('public'));
 
 app.use('/user', userRouter);
 app.use('/main', mainRouter);
+// icons
+app.use('/icons', iconsRouter);
 app.use('/', landingRouter);
 
 let server;

@@ -1,0 +1,40 @@
+.puppies {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly; }
+
+.puppy-container {
+  margin-bottom: 25px;
+  border-radius: 3px;
+  background-color: #FFA000;
+  text-align: left; }
+
+.puppy-container:hover {
+  background-color: #FFB300;
+  cursor: pointer; }
+
+.puppy-thumbnail {
+  display: block;
+  width: 100%;
+  border-radius: 3px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  margin: 0; }
+
+.puppy-info {
+  padding: 10px;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-content: center; }
+
+.puppy-name {
+  margin: 2px 0 0;
+  color: #FFFFFF; }
+
+.puppy-icon {
+  display: inline-block;
+  text-align: right;
+  color: #FFFFFF; }
+
+/*# sourceMappingURL=list.shelters.css.map */

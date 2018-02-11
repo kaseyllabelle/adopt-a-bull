@@ -2,11 +2,36 @@
 <html>
 <% include partials/head.ejs %>
 <body>
+	<!-- <div class="fix"> -->
 	<% include partials/header.ejs %>
-	<section class="main">
-		adopt-a-bull is an app that connects users with ador-a-bull, adopt-a-bull pitbulls.
-	</section>
-	<% include log-in.ejs %>
-	<% include partials/footer.ejs %>	
+	<div class="landing-container">
+		<section class="landing-image">
+		</section>
+		<aside class="log-in">
+			<p class="section-header description">adopt-a-bull is an app that connects users with ador-a-bull, adopt-a-bull pitbulls.</p>
+			<div class="radio-button-bar sign-up-sign-in">
+				<div class="radio-button-wrapper radio-button-wrapper-alt">
+					<input type="radio" name="log-in" id="sign-up" class="radio-button" checked required/>
+					<label for="sign-up" class="radio-button-label radio-button-label-left">Sign Up</label>
+				</div>
+				<div class="radio-button-wrapper radio-button-wrapper-alt">
+					<input type="radio" name="log-in" id="sign-in" class="radio-button" required/>
+					<label for="sign-in" class="radio-button-label radio-button-label-right">Sign In</label>
+				</div>
+			</div>
+			<div class="form-input">
+				<label for="email">email:</label>
+				<input type="email" name="email" id="email" minlength="3" maxlength="64" required/>
+			</div>
+			<div class="form-input">
+				<label for="password">password:</label>
+				<input type="password" name="password" id="password" autocomplete="current-password" required/>
+			</div>
+			<% include sign-in.ejs %>
+			<!-- <% include sign-up.ejs %> -->
+		</aside>
+	</div>
+	<% include partials/footer.ejs %>
+	<!-- </div> -->
 </body>
 </html>

@@ -1,0 +1,51 @@
+<div class="main-container">
+	<aside class="list">
+		<div class="fix">
+			<% include list.adopters.ejs %>
+		</div>
+	</aside>
+	<section class="main">
+		<div class="main-inner">
+			<p class="section-header">discover puppies</p>
+			<div class="discovery-wrapper">
+				<div class="puppy-card">
+					<a class="puppy-card-container">
+						<img src="/images/demo-pups/smudge.jpg" class="puppy-card-thumbnail" />
+						<div class="puppy-card-info">
+							<p class="puppy-card-name">Smudge</p>
+							<i class="material-icons puppy-card-icon">info</i>
+						</div>
+					</a>
+				</div>
+
+				<!-- <div class="puppy-card">
+					<div class="puppy-card-container">
+						<img src="/images/demo-pups/rhino.jpg" class="puppy-card-thumbnail" />
+						<div class="puppy-card-info">
+							<p class="puppy-card-name">Rhino</p>
+							<i class="material-icons puppy-card-icon">cancel</i>
+							<i class="material-icons puppy-card-icon">arrow_drop_down_circle</i>
+						</div>
+						<div class="puppy-card-expanded">
+							<p class="name">Rhino</p>
+							<p class="age">10</p>
+							<p class="bio">Rhino is a sweet pup. He's just about 10 years old. He loves face kisses, snuggles, and naps. He loves people, especially kids.</p>
+						</div>
+					</div>
+				</div> -->
+			</div>
+			<div class="bottom-nav">
+				<div class="icon-wrapper">
+					<i class="material-icons icon-next">close</i>
+				</div>
+				<div class="icon-wrapper">
+					<i class="material-icons icon-mail">mail_outline</i>
+				</div>
+				<div class="icon-wrapper">
+					<i class="material-icons icon-favorite">favorite_outline</i>
+				</div>
+			</div>
+		</div>
+	</section>
+	<% include settings.ejs %>
+</div>

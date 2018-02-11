@@ -20,7 +20,6 @@ router.post('/', (req, res) => {
 // get user
 router.get('/:userId', (req, res) => {
   Users.findById(req.params.userId).exec().then(userData => {
-  	console.log(userData);
   	res.render('user', {userData});
   });
 });

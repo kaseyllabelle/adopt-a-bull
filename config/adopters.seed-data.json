@@ -1,6 +1,0 @@
-	adopters
-		id
-		name
-		email?
-		password?
-		favorite pups

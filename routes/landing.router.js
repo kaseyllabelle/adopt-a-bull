@@ -1,13 +1,14 @@
+'use strict';
+
 const express = require('express');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  res.render('landing', {accountType:'default'});
+  res.render('landing', {logIn:'sign-in'});
 });
 
-router.get('/:accountType', (req, res) => {
-  console.log(req.params);
-  res.render('landing', {accountType: req.params.accountType});
+router.get('/:logIn', (req, res) => {
+  res.render('landing', {logIn: req.params.logIn});
 });
 
 module.exports = router;

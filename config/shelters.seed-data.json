@@ -1,7 +1,0 @@
-	shelters
-		id
-		name
-		address
-		phone
-		email
-		pups [ids]

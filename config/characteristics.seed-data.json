@@ -5,58 +5,66 @@
 }, 
 {
   "type": "input",
-  "characteristic": "adoption fee", 
-  "value": ["$500"]
+  "characteristic": "weight", 
+  "value": ["100 lbs."]
+}, 
+{
+  "type": "radio",
+  "characteristic": "training level", 
+  "value": ["needs training", "has basic training", "well trained"]
+}, 
+{
+  "type": "radio",
+  "characteristic": "house-broken", 
+  "value": ["yes", "no"]
+}, 
+{
+  "type": "radio",
+  "characteristic": "crate-trained", 
+  "value": ["yes", "no"]
+}, 
+{
+  "type": "radio",
+  "characteristic": "neutered/spayed", 
+  "value": ["yes", "no"]
+}, 
+{
+  "type": "radio",
+  "characteristic": "vaccinated", 
+  "value": ["yes", "no"]
 },
+{
+  "type": "radio",
+  "characteristic": "micro-chipped", 
+  "value": ["yes", "no"]
+}, 
+{
+  "type": "radio",
+  "characteristic": "special needs", 
+  "value": ["yes", "no"]
+}, 
 {
   "type": "checkbox",
   "characteristic": "compatibility", 
-  "value": ["kids", "dogs", "cats"]
+  "value": ["dogs", "cats", "children", "seniors", "apartments"]
+}, 
+{
+  "type": "radio",
+  "characteristic": "temperament", 
+  "value": ["affectionate", "gentle", "likes lap", "playful", "protective", "timid"]
+}, 
+{
+  "type": "radio",
+  "characteristic": "energy level", 
+  "value": ["low", "moderate", "high"]
+},
+{
+  "type": "radio",
+  "characteristic": "activity level", 
+  "value": ["not active", "slightly active", "moderately active", "highly active"]
+},
+{
+  "type": "input",
+  "characteristic": "adoption fee", 
+  "value": ["$500"]
 }
-
-    weight
-    training level
-      needs training
-      has basic training
-      well trained
-    house-broken
-      yes
-      no
-    crate-trained
-      yes
-      no
-    neutered/spayed
-      yes
-      no
-    vaccinated
-      yes
-      no
-    micro-chipped
-      yes
-      no
-    special needs
-      yes
-      no
-    compatibility
-      children
-      dogs
-      cats
-      kids
-      seniors
-      apartments
-    temperament
-      protective
-      playful
-      affectionate
-      gentle
-      timid
-      likes lap
-    energy level
-      low
-      moderate
-      high
-    activity level
-      not active
-      slightly active
-      moderately active
-      highly active
