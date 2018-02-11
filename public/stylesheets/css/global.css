@@ -177,6 +177,9 @@ input.radio-button-alt:checked + label.radio-button-label-alt {
 .material-icons.md-48 {
   font-size: 48px; }
 
+.material-icons {
+  display: inline-flex; }
+
 .icon-next {
   font-size: 50px; }
 

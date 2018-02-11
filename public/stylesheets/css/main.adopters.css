@@ -41,13 +41,9 @@
   color: #FFFFFF; }
 
 .puppy-card-expanded {
-  border: 2px solid #FFA000;
-  border-radius: 3px;
-  padding: 10px;
+  padding: 10px 0;
   background-color: #FFFFFF;
   text-align: left; }
-  .puppy-card-expanded p {
-    color: #757575; }
 
 .bottom-nav {
   flex-shrink: 0;

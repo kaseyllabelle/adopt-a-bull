@@ -12,7 +12,11 @@ const puppiesSchema = mongoose.Schema({
   gender: String,
   age: Number,
   size: String,
+  training: String,
+  characteristics: [{type: String}],
+  compatibility: [{type: String}],
   biography: String,
+  adoptionFee: String,
   shelterId: {
   	type: mongoose.Schema.ObjectId, ref: 'Shelters'
   },

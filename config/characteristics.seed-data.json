@@ -1,68 +1,38 @@
 {
   "type": "radio",
+  "characteristic": "gender", 
+  "value": ["female", "male"]
+}, 
+{
+  "type": "radio",
+  "characteristic": "age", 
+  "value": ["puppy", "young", "adult", "senior"]
+}, 
+{
+  "type": "radio",
   "characteristic": "size", 
   "value": ["S", "M", "L", "XL"]
 }, 
 {
-  "type": "input",
-  "characteristic": "weight", 
-  "value": ["100 lbs."]
-}, 
-{
   "type": "radio",
-  "characteristic": "training level", 
+  "characteristic": "training", 
   "value": ["needs training", "has basic training", "well trained"]
 }, 
 {
-  "type": "radio",
-  "characteristic": "house-broken", 
-  "value": ["yes", "no"]
-}, 
-{
-  "type": "radio",
-  "characteristic": "crate-trained", 
-  "value": ["yes", "no"]
-}, 
-{
-  "type": "radio",
-  "characteristic": "neutered/spayed", 
-  "value": ["yes", "no"]
-}, 
-{
-  "type": "radio",
-  "characteristic": "vaccinated", 
-  "value": ["yes", "no"]
-},
-{
-  "type": "radio",
-  "characteristic": "micro-chipped", 
-  "value": ["yes", "no"]
-}, 
-{
-  "type": "radio",
-  "characteristic": "special needs", 
-  "value": ["yes", "no"]
+  "type": "checkbox",
+  "characteristic": "characteristics", 
+  "value": ["house-broken", "crate-trained", "neutered/spayed", "vaccinated", "micro-chipped", "specal-needs"]
 }, 
 {
   "type": "checkbox",
   "characteristic": "compatibility", 
-  "value": ["dogs", "cats", "children", "seniors", "apartments"]
+  "value": ["apartments", "kids", "kitties", "puppies", "seniors"]
 }, 
 {
-  "type": "radio",
-  "characteristic": "temperament", 
-  "value": ["affectionate", "gentle", "likes lap", "playful", "protective", "timid"]
-}, 
-{
-  "type": "radio",
-  "characteristic": "energy level", 
-  "value": ["low", "moderate", "high"]
-},
-{
-  "type": "radio",
-  "characteristic": "activity level", 
-  "value": ["not active", "slightly active", "moderately active", "highly active"]
-},
+  "type": "input",
+  "characteristic": "biography", 
+  "value": ["Biography"]
+}
 {
   "type": "input",
   "characteristic": "adoption fee", 
