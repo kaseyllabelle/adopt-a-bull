@@ -31,29 +31,36 @@ var puppies;
 var favoritePuppies;
 
 $('.next').click(function(){
-	console.log('puppy', puppies);
+	// console.log('puppy', puppies);
 	puppies.shift();
-	console.log('puppy', puppies);
+	// console.log('puppy', puppies);
 	currentPuppy = puppies[0];
 	$('.puppy-card-thumbnail').attr('src', currentPuppy.photo);
+	$('.puppy-card-name').attr('src', currentPuppy.name);
 });
 
 $.ajax({url: "http://localhost:8080/api/puppies"}).done(function(data){
 	puppies = data;
 	currentPuppy = data[0];
-	$('.puppy-card-thumbnail').attr('src', currentPuppy.photo);
+	// $('.puppy-card-thumbnail').attr('src', currentPuppy.photo);
+	// $('.puppy-card-name').attr('src', currentPuppy.name);
+	console.log(currentPuppy);
+	$('.discovery-wrapper').html(`
+		<div class="puppy-card">
+			<a class="puppy-card-container">
+				<img src="${currentPuppy.photo}" class="puppy-card-thumbnail" />
+				<div class="puppy-card-info">
+					<p class="puppy-card-name">${currentPuppy.name}</p>
+					<i class="material-icons puppy-card-icon">info</i>
+				</div>
+			</a>
+		</div>
+	`);
 });
 
 $.ajax({url: "http://localhost:8080/api/adopters/5a811b1f4e979cb2fc454de2"}).done(function(data){
 	favoritePuppies = data.favoritePuppies;
 	$('.favorite-puppies').html(`
-		<a class="puppy-container">
-			<img src="${favoritePuppies[0].photo}" class="puppy-thumbnail" />
-			<div class="puppy-info">
-				<p class="puppy-name">${favoritePuppies[0].name}</p>
-				<i class="material-icons puppy-icon">favorite</i>
-			</div>
-		</a>
 		<a class="puppy-container">
 			<img src="${favoritePuppies[1].photo}" class="puppy-thumbnail" />
 			<div class="puppy-info">
@@ -62,7 +69,7 @@ $.ajax({url: "http://localhost:8080/api/adopters/5a811b1f4e979cb2fc454de2"}).don
 			</div>
 		</a>
 	`);
-	console.log(favoritePuppies);
+	// console.log(favoritePuppies);
 });
 
 // favorite puppy
