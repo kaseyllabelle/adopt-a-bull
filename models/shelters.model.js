@@ -14,6 +14,11 @@ const sheltersSchema = mongoose.Schema({
   },
   telephone: String,
   email: String,
+  _creator: {
+    type: mongoose.Schema.ObjectId, 
+    ref: 'Users', 
+    required: true
+  },
   adoptabullPuppies: [{
   	type: mongoose.Schema.ObjectId, ref: 'Puppies'
   }]

@@ -1,0 +1,18 @@
+{
+  "photo": "https://github.com/kaseyllabelle/adopt-a-bull/blob/master/public/images/demo-pups/rhino.jpg?raw=true", 
+  "name": "Rhino",
+
+
+}, 
+
+  photo: String,
+  name: String,
+  gender: String,
+  age: String,
+  size: String,
+  training: String,
+  biography: String,
+  adoptionFee: String,
+  shelterId: {
+  	"hardcode"
+  }

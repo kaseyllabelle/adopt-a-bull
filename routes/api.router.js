@@ -3,9 +3,10 @@
 const express = require('express');
 const router = express.Router();
 
-const {Adopters} = require('../models/adopters.model.js');
-const {Puppies} = require('../models/puppies.model.js');
-const {Shelters} = require('../models/shelters.model.js');
+const {Adopters} = require('../models/adopters.model');
+const {Puppies} = require('../models/puppies.model');
+const {Shelters} = require('../models/shelters.model');
+const {Users} = require('../models/users.model');
 
 
 // ADOPTERS

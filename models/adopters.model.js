@@ -11,6 +11,11 @@ const adoptersSchema = mongoose.Schema({
   	age: String,
   	size: String
   },
+  _creator: {
+    type: mongoose.Schema.ObjectId, 
+    ref: 'Users', 
+    required: true
+  },
   favoritePuppies: [{
   	type: mongoose.Schema.ObjectId, ref: 'Puppies'
   }]
