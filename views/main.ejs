@@ -7,12 +7,11 @@
 		<% if(userType == 'shelter'){ %>
 			<% include list.shelters.ejs %>
 			<% include main.shelters.ejs %>
-			<% include settings.shelters.ejs %>
 		<% } else{ %>
 			<% include list.adopters.ejs %>
 			<% include main.adopters.ejs %>
-			<% include settings.adopters.ejs %>
 		<% } %>
+		<% include settings.ejs %>
 	</div>
 	<% include partials/footer.ejs %>
 </body>

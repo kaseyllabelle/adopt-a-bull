@@ -1,5 +1,17 @@
 // landing > sign up / sign in
 
+$('.form-sign-in').hide();
+
+$('#btn-sign-in').click(function(){
+	$('.form-sign-up').hide();
+	$('.form-sign-in').show();
+});
+
+$('#btn-sign-up').click(function(){
+	$('.form-sign-in').hide();
+	$('.form-sign-up').show();
+});
+
 $('form.sign-up').submit(function(e){
 	e.preventDefault();
 	$.post('/user/', $(this).serialize(), function(){
@@ -16,66 +28,47 @@ $('form.sign-in').submit(function(e){
 	});
 });
 
-$('.icon-favorite').click(function(e){
-	e.preventDefault();
-	$.post('/favorite/', {
-		userId: localStorage.getItem('userId'), puppyId: $(this).data('pId')
-	});
-});
 
-
-// next puppy
+// puppies
 
 var currentPuppy;
 var puppies;
 var favoritePuppies;
 
+
+// next puppy
+
 $('.next').click(function(){
-	// console.log('puppy', puppies);
 	puppies.shift();
-	// console.log('puppy', puppies);
 	currentPuppy = puppies[0];
 	$('.puppy-card-thumbnail').attr('src', currentPuppy.photo);
 	$('.puppy-card-name').attr('src', currentPuppy.name);
 });
 
+// get next puppy from db
 $.ajax({url: "http://localhost:8080/api/puppies"}).done(function(data){
 	puppies = data;
 	currentPuppy = data[0];
-	// $('.puppy-card-thumbnail').attr('src', currentPuppy.photo);
-	// $('.puppy-card-name').attr('src', currentPuppy.name);
-	console.log(currentPuppy);
+	// console.log(currentPuppy);
 	$('.discovery-wrapper').html(`
 		<div class="puppy-card">
-			<a class="puppy-card-container">
+			<div class="puppy-card-container">
 				<img src="${currentPuppy.photo}" class="puppy-card-thumbnail" />
 				<div class="puppy-card-info">
 					<p class="puppy-card-name">${currentPuppy.name}</p>
 					<i class="material-icons puppy-card-icon">info</i>
 				</div>
-			</a>
+			</div>
 		</div>
 	`);
 });
 
-$.ajax({url: "http://localhost:8080/api/adopters/5a811b1f4e979cb2fc454de2"}).done(function(data){
-	favoritePuppies = data.favoritePuppies;
-	$('.favorite-puppies').html(`
-		<a class="puppy-container">
-			<img src="${favoritePuppies[1].photo}" class="puppy-thumbnail" />
-			<div class="puppy-info">
-				<p class="puppy-name">${favoritePuppies[1].name}</p>
-				<i class="material-icons puppy-icon">favorite</i>
-			</div>
-		</a>
-	`);
-	// console.log(favoritePuppies);
-});
 
 // favorite puppy
 
 $('.favorite').click(function(){
 	console.log('favorite puppy', currentPuppy._id);
+	var element = this;
 
 	if(favoritePuppies.indexOf(currentPuppy._id) == -1){
 		favoritePuppies.push(currentPuppy._id);
@@ -88,12 +81,78 @@ $('.favorite').click(function(){
 		method: "PUT", 
 		url: "/api/adopters/5a811b1f4e979cb2fc454de2", 
 		data: {'favoritePuppies': favoritePuppies, id: '5a811b1f4e979cb2fc454de2'}})
-	.done(function( msg ) {
-		console.log( "Data Saved: " + msg );
+	.done(function(msg){
+		console.log("Data Saved: " + msg);
+		// $(element).find('.icon-favorite').text('favorite');
+		$('.next').trigger('click');
+		getFavoritePuppies();
 	});
 });
 
+
+
+
+
+
+// expand puppy card
+
+$('.discovery-wrapper').on('click', '.puppy-card-info', function(){
+	if($('.puppy-card-icon').text() === 'info'){
+		$('.puppy-card-icon').text('cancel');
+		$('.puppy-card-container').append(`
+			<div class="puppy-card-expanded">
+				<p class="name">Rhino</p>
+				<p class="gender">male</p>
+				<p class="age">senior</p>
+				<p class="size">XL</p>
+				<p class="training">well trained</p>
+				<p class="characteristics">house broken, neutered/spayed, vaccinated, micro-chipped, special needs</p>
+				<p class="compatibility">apartments, kids</p>
+				<p class="biography">Rhino is a sweet pup. He's just about 10 years old. He loves face kisses, snuggles, and naps. He loves people, especially kids.</p>
+				<p class="adoption-fee">$500</p>
+				<div class="shelter-info">
+					<p class="name">MSPCA Boston</p>
+					<p class="address">350 South Huntington Avenue</p>
+					<p class="address">Boston, MA 02130</p>
+					<p class="telephone">617-522-5055</p>
+					<p class="email">adoption@mspca.org</p>
+				</div>
+			</div>
+		`);
+	}
+	else{
+		$('.puppy-card-icon').text('info');
+		$('.puppy-card-expanded').remove();
+	}
+});
+
+
+
+
 // list of favorites
 
+function getFavoritePuppies(){
+	$.ajax({url: "http://localhost:8080/api/adopters/5a811b1f4e979cb2fc454de2"}).done(function(data){
+		favoritePuppies = data.favoritePuppies;
+		for(i=0;i<favoritePuppies.length;i++){
+			$('.favorite-puppies').prepend(`
+				<a class="puppy-container">
+					<img src="${favoritePuppies[i].photo}" class="puppy-thumbnail" />
+					<div class="puppy-info">
+						<p class="puppy-name">${favoritePuppies[i].name}</p>
+						<i class="material-icons puppy-icon">favorite</i>
+					</div>
+				</a>
+			`);
+		}
+	});
+}
 
+getFavoritePuppies();
 
+// $('.icon-favorite').click(function(e){
+// 	e.preventDefault();
+// 	$.post('/favorite/', {
+// 		userId: localStorage.getItem('userId'), puppyId: $(this).data('pId')
+// 	});
+// });

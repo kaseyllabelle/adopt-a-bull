@@ -27,6 +27,7 @@ router.get('/:id', (req, res) => {
 
 router.post('/adoptabull', (req, res) => {
 	Users
+	//should this be adopter id??
 	.findByIdAndUpdate(req.body.shelterId, {
 		$push:{
 			'adoptabullPuppies' : req.body.puppyId
@@ -34,13 +35,13 @@ router.post('/adoptabull', (req, res) => {
 	})
 })
 
-router.post('/favorite', (req, res) => {
-	Users
-	.findByIdAndUpdate(req.body.adopterId, {
-		$push:{
-			'favoritePuppies' : req.body.puppyId
-		}
-	})
-})
+// router.post('/favorite', (req, res) => {
+// 	Users
+// 	.findByIdAndUpdate(req.body.adopterId, {
+// 		$push:{
+// 			'favoritePuppies' : req.body.puppyId
+// 		}
+// 	})
+// })
 
 module.exports = router;
