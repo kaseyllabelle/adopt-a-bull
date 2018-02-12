@@ -26,10 +26,15 @@
 				<label for="password">password:</label>
 				<input type="password" name="password" id="password" autocomplete="current-password" required/>
 			</div>
-			<% include sign-in.ejs %>
-			<!-- <% include sign-up.ejs %> -->
+			<% if(logIn == 'sign-up'){ %>
+				<% include sign-up.ejs %>
+			<% } else{ %>
+				<% include sign-in.ejs %>
+			<% } %>
 		</aside>
 	</div>
 	<% include partials/footer.ejs %>
+	<script type="text/javascript">
+	</script>
 </body>
 </html>

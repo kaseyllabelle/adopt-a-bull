@@ -5,8 +5,14 @@ mongoose.Promise = global.Promise;
 
 const sheltersSchema = mongoose.Schema({
   name: String,
-  address: String,
-  telephone: Number,
+  address: {
+  	building: String,
+  	street: String,
+  	city: String,
+  	state: String,
+  	zipcode: String
+  },
+  telephone: String,
   email: String,
   adoptabullPuppies: [{
   	type: mongoose.Schema.ObjectId, ref: 'Puppies'

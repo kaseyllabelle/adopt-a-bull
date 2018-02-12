@@ -3,11 +3,14 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
+const conf = require('./config');
+
 const landingRouter = require('./routes/landing.router');
 const userRouter = require('./routes/user.router');
 const mainRouter = require('./routes/main.router');
-const bodyParser = require('body-parser');
+const apiRouter = require('./routes/api.router');
 
+const bodyParser = require('body-parser');
 app.use(bodyParser.json({ limit: '500kb', extended: true })); 
 app.use(bodyParser.urlencoded({ limit: '500kb', extended: true }));
 
@@ -16,11 +19,12 @@ app.use(express.static('public'));
 
 app.use('/user', userRouter);
 app.use('/main', mainRouter);
+app.use('/api', apiRouter);
 app.use('/', landingRouter);
 
 let server;
 
-mongoose.connect('mongodb://kaseyllabelle:CHAI912fall@ds225078.mlab.com:25078/adopt-a-bull', (error) =>
+mongoose.connect(conf.DATABASE_URL, (error) =>
 {
   if(error)
   {
@@ -31,7 +35,7 @@ mongoose.connect('mongodb://kaseyllabelle:CHAI912fall@ds225078.mlab.com:25078/ad
 });
 
 function runServer(){
-  const port = process.env.PORT || 8080;
+  const port = conf.PORT;
   return new Promise((resolve, reject) => {
     server = app.listen(port, () => {
       console.log(`Your app is listening on port ${port}`);

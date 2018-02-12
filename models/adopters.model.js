@@ -11,7 +11,7 @@ const adoptersSchema = mongoose.Schema({
   	age: String,
   	size: String
   },
-  favoritePups: [{
+  favoritePuppies: [{
   	type: mongoose.Schema.ObjectId, ref: 'Puppies'
   }]
 });

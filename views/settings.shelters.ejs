@@ -1,5 +1,9 @@
 <aside class="settings">
 	<p class="section-header">settings</p>
+	<!-- 
+		create form with inputs and labels
+		use javascript to display data instead of form
+	 -->
 	<div class="location">
 		<p>shelter profile</p>
 		<i class="material-icons">edit</i>
@@ -13,9 +17,22 @@
 	<div>
 		<hr>
 		<p>log out</p>
+		<!-- redirect to url and redirect to landing -->
 		<hr>
 		<p>reset password</p>
+		<!-- 
+			click reset pw, use javascript to swap to form
+			form: current pw, new pw, confirm new pw, submit
+			go to api/password-reset post method
+		 -->
 		<hr>
 		<p>delete account</p>
+		<!-- 
+			click delete acct, use js to swap to form
+			form: confirm delete account, submit
+			go to api/account-delete delete method to delete user and redirect to landing
+			don't actually delete user, just deactivate
+		 -->
 	</div>
 </aside>
+<!-- <script>alert('hello');</script> -->

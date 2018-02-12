@@ -14,6 +14,10 @@ const usersSchema = mongoose.Schema({
   },
   adopterId: {
   	type: mongoose.Schema.ObjectId, ref: 'Adopters'
+  }, 
+  active: {
+    type: Boolean,
+    default: true
   }
 });
 

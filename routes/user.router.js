@@ -13,14 +13,14 @@ router.post('/', (req, res) => {
   	shelterId: new mongoose.Types.ObjectId()
   };
   Users.create(newUser).then(response => {
- 		res.redirect('/user/' + response._id);
+  		res.redirect('/user/' + response._id);
   });
 });
 
 // get user
 router.get('/:userId', (req, res) => {
   Users.findById(req.params.userId).exec().then(userData => {
-  	res.render('user', {userData});
+    res.render('user', {userData});
   });
 });
 

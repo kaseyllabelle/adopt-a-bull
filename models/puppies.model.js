@@ -10,7 +10,7 @@ const puppiesSchema = mongoose.Schema({
   photo: String,
   name: String,
   gender: String,
-  age: Number,
+  age: String,
   size: String,
   training: String,
   characteristics: [{type: String}],

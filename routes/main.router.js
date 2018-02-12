@@ -8,7 +8,6 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:userType', (req, res) => {
-  console.log(req.params);
   res.render('main', {userType: req.params.userType});
 });
 
