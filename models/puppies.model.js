@@ -18,7 +18,7 @@ const puppiesSchema = mongoose.Schema({
   biography: String,
   adoptionFee: String,
   shelterId: {
-  	type: mongoose.Schema.ObjectId, ref: 'Shelters'
+  	type: mongoose.Schema.ObjectId, ref: 'Shelter'
   },
   distance: String
 });

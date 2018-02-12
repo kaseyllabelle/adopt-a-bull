@@ -13,11 +13,11 @@ const adoptersSchema = mongoose.Schema({
   },
   _creator: {
     type: mongoose.Schema.ObjectId, 
-    ref: 'Users', 
+    ref: 'User', 
     required: true
   },
   favoritePuppies: [{
-  	type: mongoose.Schema.ObjectId, ref: 'Puppies'
+  	type: mongoose.Schema.ObjectId, ref: 'Puppy'
   }]
 });
 

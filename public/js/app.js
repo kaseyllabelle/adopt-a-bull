@@ -22,3 +22,71 @@ $('.icon-favorite').click(function(e){
 		userId: localStorage.getItem('userId'), puppyId: $(this).data('pId')
 	});
 });
+
+
+// next puppy
+
+var currentPuppy;
+var puppies;
+var favoritePuppies;
+
+$('.next').click(function(){
+	console.log('puppy', puppies);
+	puppies.shift();
+	console.log('puppy', puppies);
+	currentPuppy = puppies[0];
+	$('.puppy-card-thumbnail').attr('src', currentPuppy.photo);
+});
+
+$.ajax({url: "http://localhost:8080/api/puppies"}).done(function(data){
+	puppies = data;
+	currentPuppy = data[0];
+	$('.puppy-card-thumbnail').attr('src', currentPuppy.photo);
+});
+
+$.ajax({url: "http://localhost:8080/api/adopters/5a811b1f4e979cb2fc454de2"}).done(function(data){
+	favoritePuppies = data.favoritePuppies;
+	$('.favorite-puppies').html(`
+		<a class="puppy-container">
+			<img src="${favoritePuppies[0].photo}" class="puppy-thumbnail" />
+			<div class="puppy-info">
+				<p class="puppy-name">${favoritePuppies[0].name}</p>
+				<i class="material-icons puppy-icon">favorite</i>
+			</div>
+		</a>
+		<a class="puppy-container">
+			<img src="${favoritePuppies[1].photo}" class="puppy-thumbnail" />
+			<div class="puppy-info">
+				<p class="puppy-name">${favoritePuppies[1].name}</p>
+				<i class="material-icons puppy-icon">favorite</i>
+			</div>
+		</a>
+	`);
+	console.log(favoritePuppies);
+});
+
+// favorite puppy
+
+$('.favorite').click(function(){
+	console.log('favorite puppy', currentPuppy._id);
+
+	if(favoritePuppies.indexOf(currentPuppy._id) == -1){
+		favoritePuppies.push(currentPuppy._id);
+	}
+	else{
+		favoritePuppies.slice(favoritePuppies.indexOf(currentPuppy._id));
+	}
+
+	$.ajax({
+		method: "PUT", 
+		url: "/api/adopters/5a811b1f4e979cb2fc454de2", 
+		data: {'favoritePuppies': favoritePuppies, id: '5a811b1f4e979cb2fc454de2'}})
+	.done(function( msg ) {
+		console.log( "Data Saved: " + msg );
+	});
+});
+
+// list of favorites
+
+
+

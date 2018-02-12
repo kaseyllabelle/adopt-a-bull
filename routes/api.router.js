@@ -26,6 +26,7 @@ router.get('/adopters', (req, res) => {
 router.get('/adopters/:id', (req, res) => {
 	Adopters
 	.findById(req.params.id)
+	.populate('favoritePuppies')
 	.then(adopter =>res.json(adopter))
 	.catch(err => {
 		console.error(err);
@@ -74,7 +75,7 @@ router.put('/adopters/:id', (req, res) => {
 		}
 	});
 	Adopters.findByIdAndUpdate(req.params.id, {$set: toUpdate})
-	.then(adopter => res.status(204).end())
+	.then(adopter => res.status(204).send(adopter))
 	.catch(err => res.status(500).json({message: 'Internal server error'}));
 });
 

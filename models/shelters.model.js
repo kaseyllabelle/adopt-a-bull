@@ -20,7 +20,7 @@ const sheltersSchema = mongoose.Schema({
     required: true
   },
   adoptabullPuppies: [{
-  	type: mongoose.Schema.ObjectId, ref: 'Puppies'
+  	type: mongoose.Schema.ObjectId, ref: 'Puppy'
   }]
 });
 
