@@ -19,6 +19,6 @@ $('form.sign-in').submit(function(e){
 $('.icon-favorite').click(function(e){
 	e.preventDefault();
 	$.post('/favorite/', {
-		userId: localStorage.getItem('userId'), puppyId: $(this).data('pId');
+		userId: localStorage.getItem('userId'), puppyId: $(this).data('pId')
 	});
 });

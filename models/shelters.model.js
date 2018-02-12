@@ -6,7 +6,7 @@ mongoose.Promise = global.Promise;
 const sheltersSchema = mongoose.Schema({
   name: String,
   address: {
-  	building: String,
+  	number: String,
   	street: String,
   	city: String,
   	state: String,

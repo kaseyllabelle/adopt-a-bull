@@ -1,18 +1,88 @@
 {
+  "photo": "https://github.com/kaseyllabelle/adopt-a-bull/blob/master/public/images/demo-pups/gus.jpg?raw=true", 
+  "name": "Gus",
+  "gender": "Male",
+  "age": "Adult",
+  "size": "L",
+  "training": "has basic training",
+  "biography": "",
+  "adoptionFee": "$350",
+  "shelterId": "5a811b5f4e979cb2fc454de4"
+}, 
+{
+  "photo": "https://github.com/kaseyllabelle/adopt-a-bull/blob/master/public/images/demo-pups/luna.jpg?raw=true", 
+  "name": "Luna",
+  "gender": "Female",
+  "age": "Puppy",
+  "size": "S",
+  "training": "needs training",
+  "biography": "",
+  "adoptionFee": "$55",
+  "shelterId": "5a811b6f4e979cb2fc454de6"
+}, 
+{
+  "photo": "https://github.com/kaseyllabelle/adopt-a-bull/blob/master/public/images/demo-pups/moo.jpg?raw=true", 
+  "name": "Moo",
+  "gender": "Male",
+  "age": "Adult",
+  "size": "M",
+  "training": "has basic training",
+  "biography": "",
+  "adoptionFee": "$350",
+  "shelterId": "5a811b5f4e979cb2fc454de4"
+}, 
+{
+  "photo": "https://github.com/kaseyllabelle/adopt-a-bull/blob/master/public/images/demo-pups/peach.jpg?raw=true", 
+  "name": "Peach",
+  "gender": "Female",
+  "age": "Puppy",
+  "size": "S",
+  "training": "has basic training",
+  "biography": "",
+  "adoptionFee": "$550",
+  "shelterId": "5a811b6f4e979cb2fc454de6"
+}, 
+{
+  "photo": "https://github.com/kaseyllabelle/adopt-a-bull/blob/master/public/images/demo-pups/pebbles.jpg?raw=true", 
+  "name": "Pebbles",
+  "gender": "Female",
+  "age": "Puppy",
+  "size": "S",
+  "training": "needs training",
+  "biography": "",
+  "adoptionFee": "$500",
+  "shelterId": "5a811b5f4e979cb2fc454de4"
+}, 
+{
   "photo": "https://github.com/kaseyllabelle/adopt-a-bull/blob/master/public/images/demo-pups/rhino.jpg?raw=true", 
   "name": "Rhino",
-
-
+  "gender": "Male",
+  "age": "Senior",
+  "size": "XL",
+  "training": "well trained",
+  "biography": "",
+  "adoptionFee": "$300",
+  "shelterId": "5a811b6f4e979cb2fc454de6"
 }, 
-
-  photo: String,
-  name: String,
-  gender: String,
-  age: String,
-  size: String,
-  training: String,
-  biography: String,
-  adoptionFee: String,
-  shelterId: {
-  	"hardcode"
-  }
+{
+  "photo": "https://github.com/kaseyllabelle/adopt-a-bull/blob/master/public/images/demo-pups/smudge.jpg?raw=true", 
+  "name": "Smudge",
+  "gender": "Male",
+  "age": "Puppy",
+  "size": "S",
+  "training": "needs training",
+  "biography": "",
+  "adoptionFee": "$550",
+  "shelterId": "5a811b6f4e979cb2fc454de6"
+}, 
+{
+  "photo": "https://github.com/kaseyllabelle/adopt-a-bull/blob/master/public/images/demo-pups/teddybear.jpg?raw=true", 
+  "name": "Teddybear",
+  "gender": "Male",
+  "age": "Adult",
+  "size": "L",
+  "training": "well trained",
+  "biography": "",
+  "adoptionFee": "$350",
+  "shelterId": "5a811b5f4e979cb2fc454de4"
+}
