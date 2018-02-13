@@ -24,7 +24,8 @@ $('form.sign-in').submit(function(e){
 	$.post('/user/sign-in/', $(this).serialize(), function(d){
 		localStorage.setItem('authToken', d.authToken);
 		localStorage.setItem('userId', d.user._id);
-		window.location.href= d.user.shelterId ? '/main/shelter' : '/main/adopter'
+		// window.location.href= d.user.shelterId ? '/main/shelter' : '/main/adopter'
+		window.location.href = '/main/' + d.user._id;
 	});
 });
 
@@ -36,9 +37,18 @@ var puppies;
 var favoritePuppies;
 
 
+// make adopter only able to favorite unique puppy once
+// make list of favorites appear in the sidebar
+// retain list of favorites (if refresh, don't disappear)
+// get conditional / shift working
+
+
+
 // next puppy
 
 $('.next').click(function(){
+	// conditional before shift 
+	// if not puppies.length, then no puppies left
 	puppies.shift();
 	currentPuppy = puppies[0];
 	$('.puppy-card-thumbnail').attr('src', currentPuppy.photo);
@@ -49,10 +59,9 @@ $('.next').click(function(){
 $.ajax({url: "http://localhost:8080/api/puppies"}).done(function(data){
 	puppies = data;
 	currentPuppy = data[0];
-	// console.log(currentPuppy);
 	$('.discovery-wrapper').html(`
 		<div class="puppy-card">
-			<div class="puppy-card-container">
+			<div class="puppy-card-container" data-puppyId="${currentPuppy._id}">
 				<img src="${currentPuppy.photo}" class="puppy-card-thumbnail" />
 				<div class="puppy-card-info">
 					<p class="puppy-card-name">${currentPuppy.name}</p>
@@ -69,29 +78,18 @@ $.ajax({url: "http://localhost:8080/api/puppies"}).done(function(data){
 $('.favorite').click(function(){
 	console.log('favorite puppy', currentPuppy._id);
 	var element = this;
-
-	if(favoritePuppies.indexOf(currentPuppy._id) == -1){
-		favoritePuppies.push(currentPuppy._id);
-	}
-	else{
-		favoritePuppies.slice(favoritePuppies.indexOf(currentPuppy._id));
-	}
+	var puppyId = $('.puppy-card-container').data('puppyId');
 
 	$.ajax({
-		method: "PUT", 
-		url: "/api/adopters/5a811b1f4e979cb2fc454de2", 
-		data: {'favoritePuppies': favoritePuppies, id: '5a811b1f4e979cb2fc454de2'}})
+		method: "POST", 
+		url: "/main/favorite/", 
+		data: {userId: localStorage.getItem('userId'), 'puppyId': currentPuppy._id}})
 	.done(function(msg){
-		console.log("Data Saved: " + msg);
-		// $(element).find('.icon-favorite').text('favorite');
+		console.log("Data Saved: ", msg);
 		$('.next').trigger('click');
 		getFavoritePuppies();
 	});
 });
-
-
-
-
 
 
 // expand puppy card
@@ -127,12 +125,11 @@ $('.discovery-wrapper').on('click', '.puppy-card-info', function(){
 });
 
 
-
-
 // list of favorites
 
 function getFavoritePuppies(){
-	$.ajax({url: "http://localhost:8080/api/adopters/5a811b1f4e979cb2fc454de2"}).done(function(data){
+	$.ajax({url: `http://localhost:8080/api/adopters/${localStorage.getItem('userId')}`}).done(function(data){
+		console.log(data);
 		favoritePuppies = data.favoritePuppies;
 		for(i=0;i<favoritePuppies.length;i++){
 			$('.favorite-puppies').prepend(`
@@ -149,10 +146,3 @@ function getFavoritePuppies(){
 }
 
 getFavoritePuppies();
-
-// $('.icon-favorite').click(function(e){
-// 	e.preventDefault();
-// 	$.post('/favorite/', {
-// 		userId: localStorage.getItem('userId'), puppyId: $(this).data('pId')
-// 	});
-// });

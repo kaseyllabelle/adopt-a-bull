@@ -24,13 +24,17 @@ router.get('/adopters', (req, res) => {
 
 // find adopter by id
 router.get('/adopters/:id', (req, res) => {
-	Adopters
+	return Users
 	.findById(req.params.id)
-	.populate('favoritePuppies')
-	.then(adopter =>res.json(adopter))
-	.catch(err => {
-		console.error(err);
-		res.status(500).json({message: 'Internal server error'})
+	.exec().then(data => {
+		Adopters
+		.findById(data.adopterId)
+		.populate('favoritePuppies')
+		.then(adopter =>res.json(adopter))
+		.catch(err => {
+			console.error(err);
+			res.status(500).json({message: 'Internal server error'})
+		});
 	});
 });
 

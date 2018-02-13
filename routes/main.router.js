@@ -27,7 +27,6 @@ router.get('/:id', (req, res) => {
 
 router.post('/adoptabull', (req, res) => {
 	Users
-	//should this be adopter id??
 	.findByIdAndUpdate(req.body.shelterId, {
 		$push:{
 			'adoptabullPuppies' : req.body.puppyId
@@ -35,13 +34,26 @@ router.post('/adoptabull', (req, res) => {
 	})
 })
 
-// router.post('/favorite', (req, res) => {
-// 	Users
-// 	.findByIdAndUpdate(req.body.adopterId, {
-// 		$push:{
-// 			'favoritePuppies' : req.body.puppyId
-// 		}
-// 	})
-// })
+router.post('/favorite', (req, res) => {
+	return Users
+	.findById(req.body.userId)
+	.exec().then(data => {
+		Adopters
+		.findByIdAndUpdate(data.adopterId, 
+		{ 
+			$push:{'favoritePuppies' : req.body.puppyId}
+		}, 
+		{
+			// make this only favorite puppies that don't already exist in favorites
+			safe: true, 
+			upsert: true, 
+			new : true
+		})
+		.exec()
+		.then(data => {
+			res.status(206).json(data);
+		});
+	});
+})
 
 module.exports = router;

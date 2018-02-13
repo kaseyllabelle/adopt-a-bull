@@ -1,4 +1,4 @@
-{
+[{
   "photo": "https://github.com/kaseyllabelle/adopt-a-bull/blob/master/public/images/demo-pups/gus.jpg?raw=true", 
   "name": "Gus",
   "gender": "Male",
@@ -85,4 +85,4 @@
   "biography": "",
   "adoptionFee": "$350",
   "shelterId": "5a811b5f4e979cb2fc454de4"
-}
+}]

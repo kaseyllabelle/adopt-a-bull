@@ -37,8 +37,8 @@ router.post('/', (req, res) => {
       return Users.create({
         email: newUser.email,
         password: hash,
-        shelterId: newUser.shelterId,
-        adopterId: newUser.adopterId
+        shelterId: newUser.shelterId.ObjectId,
+        adopterId: newUser.adopterId.ObjectId
       });
     })
     .then(user => {
