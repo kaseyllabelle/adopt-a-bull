@@ -18,11 +18,11 @@
 				<p class="biography"><%=data[0].biography%></p>
 				<p class="adoption-fee"><%=data[0].adoptionFee%></p>
 				<div class="shelter-info">
-					<p class="name"><%#data[0].shelter.name%></p>
-					<p class="address"><%#data[0].shelter.address.number%> <%#data[0].shelter.address.street%></p>
-					<p class="address"><%#data[0].shelter.address.city%> <%#data[0].shelter.address.state%> <%#data[0].shelter.address.zipcode%></p>
-					<p class="telephone"><%#data[0].shelter.telephone%></p>
-					<p class="email"><%#data[0].shelter.email%></p>
+					<p class="name"><%=data[0].shelterId.name%></p>
+					<p class="address"><%=data[0].shelterId.address.number%> <%=data[0].shelterId.address.street%></p>
+					<p class="address"><%=data[0].shelterId.address.city%> <%=data[0].shelterId.address.state%> <%=data[0].shelterId.address.zipcode%></p>
+					<p class="telephone"><%=data[0].shelterId.telephone%></p>
+					<p class="email"><%=data[0].shelterId.email%></p>
 				</div>
 			</div>
 		</div>

@@ -27,19 +27,21 @@ $('form.sign-in').submit(function(e){
 
 // puppies
 
-// make adopter only able to favorite unique puppy once
-// make list of favorites appear in the sidebar
-// retain list of favorites (if refresh, don't disappear)
-// get conditional / shift working
-// email shelter
-
-
-
 // get all puppies
 
 function getPuppies(puppyId = 0, nextPuppy = null){
-	$('.puppy-card').load('/api/puppies/' + puppyId, nextPuppy);
+	$('.puppy-card').load('/api/puppies/' + puppyId, nextPuppy, function(d){
+		$('a.mail').attr('href', `mailto:${$(`.shelter-info .email`).text()}`);
+	});
 }
+
+
+
+
+// TO DO
+// only add puppy to favorite once
+// mail to shelter
+// tests
 
 if($('.js-main-adopters')){
 	getPuppies();
@@ -81,15 +83,15 @@ $('.favorite').click(function(){
 		data: {userId: localStorage.getItem('userId'), 'puppyId': puppyId}})
 	.done(function(msg){
 		console.log("Data Saved: ", msg);
+		renderFavoritePuppies();
 		getPuppies($('.hidden-puppy').data('nextpuppy'), JSON.parse($('.hidden-puppy p').text()));
 	});
 });
 
 
-// list of favorites
-// move this to ejs
-
-function getFavoritePuppies(){
+// render list of favorites
+function renderFavoritePuppies(){
+	$('.favorite-puppies').html('');
 	$.ajax({url: `/api/adopters/${localStorage.getItem('userId')}`}).done(function(data){
 		console.log(data);
 		favoritePuppies = data.favoritePuppies;
@@ -107,4 +109,4 @@ function getFavoritePuppies(){
 	});
 }
 
-getFavoritePuppies();
+renderFavoritePuppies();

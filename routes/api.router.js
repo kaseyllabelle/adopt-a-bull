@@ -98,6 +98,7 @@ router.get('/puppies/:position', (req, res) => {
 	const allOfThePuppies = Puppies.find().count().exec();
 	return Puppies
 	.find()
+	.populate('shelterId')
 	.limit(~~req.params.position === 0 ? 2 : 1)
 	.skip(~~req.params.position)
 	.exec()
@@ -122,6 +123,7 @@ router.post('/puppies/:position', (req, res) => {
 		}
 		return Puppies
 		.find()
+		.populate('shelterId')
 		.limit(1)
 		.skip(currentPosition)
 		.exec()
