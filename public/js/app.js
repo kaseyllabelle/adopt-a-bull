@@ -98,15 +98,10 @@ function renderFavoritePuppies(){
 	$('.favorite-puppies').html('');
 	$.ajax({url: `/api/adopters/${localStorage.getItem('userId')}`}).done(function(data){
 		let favoritePuppies = data.favoritePuppies;
-	
+		// var array = favoritePuppies.map(a => a._id);
+		// let uniqueFavoritePuppies = [...new Set(array)];
+		favoritePuppies = _.uniqBy(favoritePuppies, '_id');
 		for(i=0;i<favoritePuppies.length;i++){
-	
-			var array = favoritePuppies.map(a => a._id);
-			let uniqueFavoritePuppies = [...new Set(array)];
-
-			// console.log(uniqueFavoritePuppies);
-			// console.log(favoritePuppies[i]);
-
 			$('.favorite-puppies').prepend(`
 				<a class="puppy-container">
 					<img src="${favoritePuppies[i].photo}" class="puppy-thumbnail" />
@@ -128,11 +123,9 @@ renderFavoritePuppies();
 
 
 // TO DO
-// only add puppy to favorite once
 // tests
 // clean up api
 // clean up shelters files - move to v2?
 // fix ui
 // spacing around forgot password link on sign in
-// puppy card collapsed - using puppy-card class in two spaces
 // puppy card expanded

@@ -91,12 +91,6 @@ router.delete('/adopters/:id', (req, res) => {
 });
 
 
-
-
-
-
-// BEGIN PUPPIES
-
 // PUPPIES
 
 // get initial puppies
@@ -162,12 +156,6 @@ router.post('/favorite', (req, res) => {
 		});
 	});
 })
-
-// END USING
-
-
-
-
 
 // find puppy by value
 router.get('/puppies', (req, res) => {
