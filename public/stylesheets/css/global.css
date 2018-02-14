@@ -129,6 +129,12 @@ input.radio-button {
   margin: 0;
   cursor: pointer; }
 
+input[disabled] {
+  cursor: not-allowed; }
+
+input[disabled] + label {
+  color: #BDBDBD; }
+
 label.radio-button-label {
   display: block;
   border: 2px solid #2196F3;
