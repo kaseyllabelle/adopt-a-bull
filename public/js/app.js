@@ -37,61 +37,51 @@ $('form.sign-in').submit(function(e){
 
 // get all puppies
 
-function getPuppies(puppyId = 0){
-	console.log(puppyId);
-	$(".testing-this-thing").load('/api/puppies/' + puppyId);
-	// $.ajax({url: '/api/puppies/' + puppyId})
-	// .done(function(data){
-	// 	currentPuppy = data;
-	// 	console.log(currentPuppy);
-	// 	$('.discovery-wrapper').html('');
-	// });
+function getPuppies(puppyId = 0, nextPuppy = null){
+	$('.puppy-card').load('/api/puppies/' + puppyId, nextPuppy);
 }
+
 if($('.js-main-adopters')){
 	getPuppies();
 }
 
 // expand puppy card
-
-$('.discovery-wrapper').on('click', '.puppy-card-info', function(){
-	if($('.puppy-card-icon').text() === 'info'){
-		$('.puppy-card-icon').text('cancel');
-		$('.puppy-card-container').append('');
-	}
-	else{
-		$('.puppy-card-icon').text('info');
-		$('.puppy-card-expanded').remove();
-	}
-});
+//
+// FIX THIS
+//
+// $('.discovery-wrapper').on('click', '.puppy-card-info', function(){
+// 	if($('.puppy-card-icon').text() === 'info'){
+// 		$('.puppy-card-icon').text('cancel');
+// 		$('.puppy-card-container').append('');
+// 	}
+// 	else{
+// 		$('.puppy-card-icon').text('info');
+// 		$('.puppy-card-expanded').remove();
+// 	}
+// });
 
 
 // next puppy
 
 $('.next').click(function(){
-	// conditional before shift 
-	// if not puppies.length, then no puppies left
-	puppies.shift();
-	currentPuppy = puppies[0];
-	$('.puppy-card-thumbnail').attr('src', currentPuppy.photo);
-	$('.puppy-card-name').attr('src', currentPuppy.name);
+	getPuppies($('.hidden-puppy').data('nextpuppy'), JSON.parse($('.hidden-puppy p').text()));
 });
 
 
 // favorite puppy
 
 $('.favorite').click(function(){
-	console.log('favorite puppy', currentPuppy._id);
+	console.log('favorite puppy');
 	var element = this;
-	var puppyId = $('.puppy-card-container').data('puppyId');
+	var puppyId = $('.puppy-card-container').data('puppyid');
 
 	$.ajax({
 		method: "POST", 
-		url: "/main/favorite/", 
-		data: {userId: localStorage.getItem('userId'), 'puppyId': currentPuppy._id}})
+		url: "/api/favorite/", 
+		data: {userId: localStorage.getItem('userId'), 'puppyId': puppyId}})
 	.done(function(msg){
 		console.log("Data Saved: ", msg);
-		$('.next').trigger('click');
-		getFavoritePuppies();
+		getPuppies($('.hidden-puppy').data('nextpuppy'), JSON.parse($('.hidden-puppy p').text()));
 	});
 });
 

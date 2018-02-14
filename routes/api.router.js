@@ -93,7 +93,7 @@ router.delete('/adopters/:id', (req, res) => {
 
 // PUPPIES
 
-// find puppy by position
+// get initial puppies
 router.get('/puppies/:position', (req, res) => { 
 	const allOfThePuppies = Puppies.find().count().exec();
 	return Puppies
@@ -104,9 +104,59 @@ router.get('/puppies/:position', (req, res) => {
 	.then(data => {
 		data.push({nextPosition: ~~req.params.position + (~~req.params.position === 0) ? 2 : 1});
 		console.log(data);
-		return res.status(203).render('puppy-card-collapsed', {data});
+		return res.status(203).render('puppy-card', {data});
 	});
 });
+
+// load hidden puppy
+router.post('/puppies/:position', (req, res) => {
+	Puppies.find().count().exec().then(data => {
+		console.log(data);
+		
+		const allOfThePuppies = data;
+
+		let currentPosition = ~~req.params.position;
+		console.log(currentPosition, allOfThePuppies);
+		if(currentPosition >= allOfThePuppies -1){
+			currentPosition = 0;
+		}
+		return Puppies
+		.find()
+		.limit(1)
+		.skip(currentPosition)
+		.exec()
+		.then(newData => {
+			let data = [req.body, newData[0], {nextPosition: ++ currentPosition}];
+			console.log(data);
+			return res.status(203).render('puppy-card', {data});
+		});
+	});
+});
+
+// favorite puppy
+router.post('/favorite', (req, res) => {
+	return Users
+	.findById(req.body.userId)
+	.exec().then(data => {
+		Adopters
+		.findByIdAndUpdate(data.adopterId, 
+		{ 
+			$push:{'favoritePuppies' : req.body.puppyId}
+		}, 
+		{
+			// make this only favorite puppies that don't already exist in favorites
+			safe: true, 
+			upsert: true, 
+			new : true
+		})
+		.exec()
+		.then(data => {
+			res.status(206).json(data);
+		});
+	});
+})
+
+
 
 // find puppy by value
 router.get('/puppies', (req, res) => {

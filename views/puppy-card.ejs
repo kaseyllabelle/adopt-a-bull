@@ -1,0 +1,34 @@
+<p class="section-header section-header-main">discover puppies</p>
+<div class="discovery-wrapper">
+	<div class="puppy-card">
+		<div class="puppy-card-container" data-puppyid="<%=data[0]._id%>">
+			<img src="<%=data[0].photo%>" class="puppy-card-thumbnail" />
+			<div class="puppy-card-info">
+				<p class="puppy-card-name"><%=data[0].name%></p>
+				<i class="material-icons puppy-card-icon">info</i>
+			</div>
+			<div class="puppy-card-expanded">
+				<p class="name"><%=data[0].name%></p>
+				<p class="gender"><%=data[0].gender%></p>
+				<p class="age"><%=data[0].age%></p>
+				<p class="size"><%=data[0].size%></p>
+				<p class="training"><%=data[0].training%></p>
+				<p class="characteristics"><%=data[0].characteristics%></p>
+				<p class="compatibility"><%=data[0].compatibility%></p>
+				<p class="biography"><%=data[0].biography%></p>
+				<p class="adoption-fee"><%=data[0].adoptionFee%></p>
+				<div class="shelter-info">
+					<p class="name"><%#data[0].shelter.name%></p>
+					<p class="address"><%#data[0].shelter.address.number%> <%#data[0].shelter.address.street%></p>
+					<p class="address"><%#data[0].shelter.address.city%> <%#data[0].shelter.address.state%> <%#data[0].shelter.address.zipcode%></p>
+					<p class="telephone"><%#data[0].shelter.telephone%></p>
+					<p class="email"><%#data[0].shelter.email%></p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div style="display: none;" class="hidden-puppy" data-nextpuppy="<%= data[2].nextPosition %>">
+	<img src="<%=data[1].photo%>" />
+	<p><%- JSON.stringify(data[1]) %></p>
+</div>
