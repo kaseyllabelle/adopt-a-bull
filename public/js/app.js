@@ -73,26 +73,6 @@ $('.favorite').click(function(){
 });
 
 
-// render list of favorites
-// function renderFavoritePuppies(){
-// 	$('.favorite-puppies').html('');
-// 	$.ajax({url: `/api/adopters/${localStorage.getItem('userId')}`}).done(function(data){
-// 		let favoritePuppies = data.favoritePuppies;
-// 		for(i=0;i<favoritePuppies.length;i++){
-// 			$('.favorite-puppies').prepend(`
-// 				<a class="puppy-container">
-// 					<img src="${favoritePuppies[i].photo}" class="puppy-thumbnail" />
-// 					<div class="puppy-info">
-// 						<p class="puppy-name">${favoritePuppies[i].name}</p>
-// 						<i class="material-icons puppy-icon">favorite</i>
-// 					</div>
-// 				</a>
-// 			`);
-// 		}
-// 	});
-// }
-
-
 // render list of unique favorites
 function renderFavoritePuppies(){
 	$('.favorite-puppies').html('');
@@ -123,8 +103,8 @@ renderFavoritePuppies();
 
 
 // TO DO
-// tests
 // clean up shelters files - move to v2?
 // fix ui
 // spacing around forgot password link on sign in
 // puppy card expanded
+// fix hover on bottom nav

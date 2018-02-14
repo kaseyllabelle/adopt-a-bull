@@ -20,6 +20,7 @@ router.post('/', (req, res) => {
     shelterId: (req.body['user-type'] === 'shelter') ? new mongoose.Types.ObjectId() : null,
     adopterId: (req.body['user-type'] === 'adopter') ? new mongoose.Types.ObjectId() : null
   };
+  console.log(newUser);
   return Users.find({email: newUser.email})
     .count()
     .then(count => {
@@ -37,8 +38,8 @@ router.post('/', (req, res) => {
       return Users.create({
         email: newUser.email,
         password: hash,
-        shelterId: newUser.shelterId.ObjectId,
-        adopterId: newUser.adopterId.ObjectId
+        shelterId: newUser.shelterId,
+        adopterId: newUser.adopterId
       });
     })
     .then(user => {

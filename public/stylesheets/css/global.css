@@ -51,6 +51,9 @@ a:hover {
   color: #FFB300;
   text-decoration: underline; }
 
+i:hover {
+  text-decoration: none; }
+
 button,
 input {
   outline: none;
