@@ -2,8 +2,9 @@
 
   [adopt-a-bull](https://shrouded-bayou-47963.herokuapp.com/) is an app that connects users with ador-a-bull, adopt-a-bull pitbulls. 
 
-  v1 of this app allows:  
-   adopters to:  
+  ## v1
+
+  allows adopters to:  
    - sign up for an account  
    - sign in  
    - browse adopt-a-bull puppies  
@@ -12,8 +13,10 @@
    - contact a shelter about a puppy  
    - view their list of favorited puppies  
   
-  v2 will add support for:  
-	shelters to:  
+  
+  ## v2
+
+  will add support for shelters to:  
    	- sign up for an account  
    	- sign in  
    	- submit a form to add an adopt-a-bull puppy to the database  
@@ -21,14 +24,17 @@
    	- view the shelter's list of adopt-a-bull puppies  
    	- edit an adopt-a-bull puppy  
    	- remove an adopt-a-bull puppy  
-   	adopters to:  
+   
+   will add support for adopters to:  
    	- enable their location  
    	- filter adopt-a-bull puppies by distance  
    	- filter adopt-a-bull puppies by attributes  
-   	users to:  
+   
+   will add support for all users to:  
    	- log out  
    	- reset password  
    	- delete account  
+
 
   ![Sign up](adopt-a-bull_sign-up.png)
 
