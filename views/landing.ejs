@@ -15,11 +15,19 @@
 			<% } %>
 				<div class="radio-button-bar sign-up-sign-in">
 					<div class="radio-button-wrapper radio-button-wrapper-alt">
-						<input type="radio" name="log-in" id="btn-sign-up" class="radio-button" checked required/>
+						<input type="radio" name="log-in" id="btn-sign-up" class="radio-button" 
+						<% if(logIn == 'sign-up'){ %>
+						checked 
+						<% } %> 
+						required/>
 						<label for="btn-sign-up" class="radio-button-label radio-button-label-left">Sign Up</label>
 					</div>
 					<div class="radio-button-wrapper radio-button-wrapper-alt">
-						<input type="radio" name="log-in" id="btn-sign-in" class="radio-button" required/>
+						<input type="radio" name="log-in" id="btn-sign-in" class="radio-button" 
+						<% if(logIn == 'sign-in'){ %>
+						checked 
+						<% } %> 
+						required/>
 						<label for="btn-sign-in" class="radio-button-label radio-button-label-right">Sign In</label>
 					</div>
 				</div>

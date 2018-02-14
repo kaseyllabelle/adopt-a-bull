@@ -1,15 +1,11 @@
 // landing > sign up / sign in
 
-$('.form-sign-in').hide();
-
 $('#btn-sign-in').click(function(){
-	$('.form-sign-up').hide();
-	$('.form-sign-in').show();
+	window.location.href = '/sign-in/'
 });
 
 $('#btn-sign-up').click(function(){
-	$('.form-sign-in').hide();
-	$('.form-sign-up').show();
+	window.location.href = '/sign-up/'
 });
 
 $('form.sign-up').submit(function(e){
@@ -32,16 +28,25 @@ $('form.sign-in').submit(function(e){
 
 // puppies
 
-var currentPuppy;
-var puppies;
-var favoritePuppies;
-
 
 // make adopter only able to favorite unique puppy once
 // make list of favorites appear in the sidebar
 // retain list of favorites (if refresh, don't disappear)
 // get conditional / shift working
 
+
+// expand puppy card
+
+$('.discovery-wrapper').on('click', '.puppy-card-info', function(){
+	if($('.puppy-card-icon').text() === 'info'){
+		$('.puppy-card-icon').text('cancel');
+		$('.puppy-card-container').append(``);
+	}
+	else{
+		$('.puppy-card-icon').text('info');
+		$('.puppy-card-expanded').remove();
+	}
+});
 
 
 // next puppy
@@ -59,17 +64,8 @@ $('.next').click(function(){
 $.ajax({url: "http://localhost:8080/api/puppies"}).done(function(data){
 	puppies = data;
 	currentPuppy = data[0];
-	$('.discovery-wrapper').html(`
-		<div class="puppy-card">
-			<div class="puppy-card-container" data-puppyId="${currentPuppy._id}">
-				<img src="${currentPuppy.photo}" class="puppy-card-thumbnail" />
-				<div class="puppy-card-info">
-					<p class="puppy-card-name">${currentPuppy.name}</p>
-					<i class="material-icons puppy-card-icon">info</i>
-				</div>
-			</div>
-		</div>
-	`);
+	console.log(currentPuppy);
+	$('.discovery-wrapper').html(``);
 });
 
 
@@ -91,42 +87,8 @@ $('.favorite').click(function(){
 	});
 });
 
-
-// expand puppy card
-
-$('.discovery-wrapper').on('click', '.puppy-card-info', function(){
-	if($('.puppy-card-icon').text() === 'info'){
-		$('.puppy-card-icon').text('cancel');
-		$('.puppy-card-container').append(`
-			<div class="puppy-card-expanded">
-				<p class="name">Rhino</p>
-				<p class="gender">male</p>
-				<p class="age">senior</p>
-				<p class="size">XL</p>
-				<p class="training">well trained</p>
-				<p class="characteristics">house broken, neutered/spayed, vaccinated, micro-chipped, special needs</p>
-				<p class="compatibility">apartments, kids</p>
-				<p class="biography">Rhino is a sweet pup. He's just about 10 years old. He loves face kisses, snuggles, and naps. He loves people, especially kids.</p>
-				<p class="adoption-fee">$500</p>
-				<div class="shelter-info">
-					<p class="name">MSPCA Boston</p>
-					<p class="address">350 South Huntington Avenue</p>
-					<p class="address">Boston, MA 02130</p>
-					<p class="telephone">617-522-5055</p>
-					<p class="email">adoption@mspca.org</p>
-				</div>
-			</div>
-		`);
-	}
-	else{
-		$('.puppy-card-icon').text('info');
-		$('.puppy-card-expanded').remove();
-	}
-});
-
-
 // list of favorites
-
+// move this to ejs
 function getFavoritePuppies(){
 	$.ajax({url: `http://localhost:8080/api/adopters/${localStorage.getItem('userId')}`}).done(function(data){
 		console.log(data);
@@ -146,3 +108,5 @@ function getFavoritePuppies(){
 }
 
 getFavoritePuppies();
+
+// email shelter
