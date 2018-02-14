@@ -1,4 +1,4 @@
-// landing > sign up / sign in
+// LANDING
 
 $('#btn-sign-in').click(function(){
 	window.location.href = '/sign-in/'
@@ -25,58 +25,44 @@ $('form.sign-in').submit(function(e){
 });
 
 
-// puppies
+// PUPPIES
 
 // get all puppies
-
 function getPuppies(puppyId = 0, nextPuppy = null){
 	$('.puppy-card').load('/api/puppies/' + puppyId, nextPuppy, function(d){
+		$('.puppy-card-expanded').hide();
 		$('a.mail').attr('href', `mailto:${$(`.shelter-info .email`).text()}`);
 	});
 }
 
-
-
-
-// TO DO
-// only add puppy to favorite once
-// mail to shelter
-// tests
-
 if($('.js-main-adopters')){
 	getPuppies();
-}
+};
+
 
 // expand puppy card
-//
-// FIX THIS
-//
-// $('.discovery-wrapper').on('click', '.puppy-card-info', function(){
-// 	if($('.puppy-card-icon').text() === 'info'){
-// 		$('.puppy-card-icon').text('cancel');
-// 		$('.puppy-card-container').append('');
-// 	}
-// 	else{
-// 		$('.puppy-card-icon').text('info');
-// 		$('.puppy-card-expanded').remove();
-// 	}
-// });
+$('.main-inner').on('click', '.puppy-card-info', function(){
+	if($('.puppy-card-icon').text() === 'info'){
+		$('.puppy-card-icon').text('cancel');
+		$('.puppy-card-expanded').show();
+	}
+	else{
+		$('.puppy-card-icon').text('info');
+		$('.puppy-card-expanded').hide();
+	}
+});
 
 
 // next puppy
-
 $('.next').click(function(){
 	getPuppies($('.hidden-puppy').data('nextpuppy'), JSON.parse($('.hidden-puppy p').text()));
 });
 
 
 // favorite puppy
-
 $('.favorite').click(function(){
-	console.log('favorite puppy');
 	var element = this;
 	var puppyId = $('.puppy-card-container').data('puppyid');
-
 	$.ajax({
 		method: "POST", 
 		url: "/api/favorite/", 
@@ -93,7 +79,6 @@ $('.favorite').click(function(){
 function renderFavoritePuppies(){
 	$('.favorite-puppies').html('');
 	$.ajax({url: `/api/adopters/${localStorage.getItem('userId')}`}).done(function(data){
-		console.log(data);
 		favoritePuppies = data.favoritePuppies;
 		for(i=0;i<favoritePuppies.length;i++){
 			$('.favorite-puppies').prepend(`
@@ -110,3 +95,17 @@ function renderFavoritePuppies(){
 }
 
 renderFavoritePuppies();
+
+
+
+
+
+// TO DO
+// only add puppy to favorite once
+// tests
+// clean up api
+// clean up shelters files - move to v2?
+// fix ui
+// forgot password link on sign in
+// puppy card collapsed - using puppy-card class in two spaces
+// puppy card expanded
