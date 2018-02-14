@@ -8,21 +8,60 @@
 				<i class="material-icons puppy-card-icon">info</i>
 			</div>
 			<div class="puppy-card-expanded">
-				<p class="name">Name: <%=data[0].name%></p>
-				<p class="gender">Gender: <%=data[0].gender%></p>
-				<p class="age">Age: <%=data[0].age%></p>
-				<p class="size">Size: <%=data[0].size%></p>
-				<p class="training">Training: <%=data[0].training%></p>
-				<p class="characteristics"><%=data[0].characteristics%></p>
-				<p class="compatibility"><%=data[0].compatibility%></p>
-				<p class="biography">Biography: <%=data[0].biography%></p>
-				<p class="adoption-fee">Adoption Fee: <%=data[0].adoptionFee%></p>
+				<p class="name">
+					<span class="puppy-card-expanded-label">Name:</span> 
+					<span class="puppy-card-expanded-content"><%=data[0].name%></span>
+				</p>
+				<p class="gender">
+					<span class="puppy-card-expanded-label">Gender:</span> 
+					<span class="puppy-card-expanded-content"><%=data[0].gender%></span>
+				</p>
+				<p class="age">
+					<span class="puppy-card-expanded-label">Age:</span> 
+					<span class="puppy-card-expanded-content"><%=data[0].age%></span>
+				</p>
+				<p class="size">
+					<span class="puppy-card-expanded-label">Size:</span> 
+					<span class="puppy-card-expanded-content"><%=data[0].size%></span>
+				</p>
+				<p class="Training">
+					<span class="puppy-card-expanded-label">Training:</span> 
+					<span class="puppy-card-expanded-content"><%=data[0].training%></span>
+				</p>
+				<p class="characteristics">
+					<span class="puppy-card-expanded-label">Characteristics:</span> 
+					<span class="puppy-card-expanded-content"><%=data[0].characteristics%></span>
+				</p>
+				<p class="compatibility">
+					<span class="puppy-card-expanded-label">Compatibility:</span> 
+					<span class="puppy-card-expanded-content"><%=data[0].compatibility%></span>
+				</p>
+				<p class="biography">
+					<span class="puppy-card-expanded-label">Biography:</span> 
+					<span class="puppy-card-expanded-content"><%=data[0].biography%></span>
+				</p>
+				<p class="adoption-fee">
+					<span class="puppy-card-expanded-label">Adoption Fee:</span> 
+					<span class="puppy-card-expanded-content"><%=data[0].adoptionFee%></span>
+				</p>
 				<div class="shelter-info">
-					<p class="name">Shelter: <%=data[0].shelterId.name%></p>
-					<p class="address"><%=data[0].shelterId.address.number%> <%=data[0].shelterId.address.street%></p>
-					<p class="address"><%=data[0].shelterId.address.city%> <%=data[0].shelterId.address.state%> <%=data[0].shelterId.address.zipcode%></p>
-					<p class="telephone"><%=data[0].shelterId.telephone%></p>
-					<p class="email"><%=data[0].shelterId.email%></p>
+					<p class="puppy-card-expanded-label">Shelter Information:
+					</p>
+					<p class="name"> 
+						<span class="puppy-card-expanded-content"><%=data[0].shelterId.name%></span>
+					</p>
+					<p class="address">
+						<span class="puppy-card-expanded-content"><%=data[0].shelterId.address.number%> <%=data[0].shelterId.address.street%></span>
+					</p>
+					<p class="address">
+						<span class="puppy-card-expanded-content"><%=data[0].shelterId.address.city%> <%=data[0].shelterId.address.state%> <%=data[0].shelterId.address.zipcode%></span>
+					</p>
+					<p class="telephone">
+						<span class="puppy-card-expanded-content"><%=data[0].shelterId.telephone%></span>
+					</p>
+					<p class="email">
+						<span class="puppy-card-expanded-content"><%=data[0].shelterId.email%></span>
+					</p>
 				</div>
 			</div>
 		</div>

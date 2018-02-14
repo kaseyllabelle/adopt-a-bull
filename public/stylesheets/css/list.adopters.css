@@ -4,14 +4,10 @@
   justify-content: space-evenly; }
 
 .puppy-container {
-  margin-bottom: 25px;
+  margin-bottom: 30px;
   border-radius: 3px;
   background-color: #FFA000;
   text-align: left; }
-
-.puppy-container:hover {
-  background-color: #FFB300;
-  cursor: pointer; }
 
 .puppy-thumbnail {
   display: block;
@@ -37,4 +33,4 @@
   text-align: right;
   color: #FFFFFF; }
 
-/*# sourceMappingURL=list.shelters.css.map */
+/*# sourceMappingURL=list.adopters.css.map */

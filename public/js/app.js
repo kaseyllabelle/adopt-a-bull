@@ -83,28 +83,16 @@ function renderFavoritePuppies(){
 		favoritePuppies = _.uniqBy(favoritePuppies, '_id');
 		for(i=0;i<favoritePuppies.length;i++){
 			$('.favorite-puppies').prepend(`
-				<a class="puppy-container">
+				<div class="puppy-container">
 					<img src="${favoritePuppies[i].photo}" class="puppy-thumbnail" />
 					<div class="puppy-info">
 						<p class="puppy-name">${favoritePuppies[i].name}</p>
 						<i class="material-icons puppy-icon">favorite</i>
 					</div>
-				</a>
+				</div>
 			`);
 		}
 	});
 }
 
-
-
-
-
 renderFavoritePuppies();
-
-
-// TO DO
-// clean up shelters files - move to v2?
-// fix ui
-// spacing around forgot password link on sign in
-// puppy card expanded
-// fix hover on bottom nav

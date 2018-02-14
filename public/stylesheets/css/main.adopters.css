@@ -3,8 +3,7 @@
   flex-direction: column;
   width: 100%;
   height: 100%;
-  text-align: center;
-  min-height: -webkit-min-content; }
+  text-align: center; }
 
 .discovery-wrapper {
   flex: 1 0 auto; }
@@ -41,9 +40,25 @@
   color: #FFFFFF; }
 
 .puppy-card-expanded {
-  padding: 10px 0;
+  border: 1px solid #FFA000;
+  border-radius: 3px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  padding: 10px;
   background-color: #FFFFFF;
   text-align: left; }
+
+.puppy-card-expanded-label {
+  color: #9E9E9E; }
+
+.puppy-card-expanded-content {
+  color: #2196F3; }
+
+.name {
+  margin-top: 0; }
+
+.email {
+  margin-bottom: 0; }
 
 .bottom-nav {
   flex-shrink: 0;
@@ -56,5 +71,23 @@
   width: 50px;
   height: 50px;
   margin: 10px; }
+
+.material-icons {
+  display: inline-flex; }
+
+.icon-next {
+  font-size: 50px; }
+
+.icon-mail {
+  font-size: 46px;
+  color: #FFA000; }
+
+.icon-favorite {
+  font-size: 46px;
+  color: #F50057; }
+
+@media all and (max-width: 767px) {
+  .discovery-wrapper {
+    margin: 0 30px; } }
 
 /*# sourceMappingURL=main.adopters.css.map */
