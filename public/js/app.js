@@ -29,7 +29,7 @@ $('form.sign-in').submit(function(e){
 
 // get all puppies
 function getPuppies(puppyId = 0, nextPuppy = null){
-	$('.puppy-card').load('/api/puppies/' + puppyId, nextPuppy, function(d){
+	$('.js-puppy-card').load('/api/puppies/' + puppyId, nextPuppy, function(d){
 		$('.puppy-card-expanded').hide();
 		$('a.mail').attr('href', `mailto:${$(`.shelter-info .email`).text()}`);
 	});
@@ -61,14 +61,12 @@ $('.next').click(function(){
 
 // favorite puppy
 $('.favorite').click(function(){
-	var element = this;
 	var puppyId = $('.puppy-card-container').data('puppyid');
 	$.ajax({
 		method: "POST", 
 		url: "/api/favorite/", 
 		data: {userId: localStorage.getItem('userId'), 'puppyId': puppyId}})
 	.done(function(msg){
-		console.log("Data Saved: ", msg);
 		renderFavoritePuppies();
 		getPuppies($('.hidden-puppy').data('nextpuppy'), JSON.parse($('.hidden-puppy p').text()));
 	});
@@ -76,11 +74,39 @@ $('.favorite').click(function(){
 
 
 // render list of favorites
+// function renderFavoritePuppies(){
+// 	$('.favorite-puppies').html('');
+// 	$.ajax({url: `/api/adopters/${localStorage.getItem('userId')}`}).done(function(data){
+// 		let favoritePuppies = data.favoritePuppies;
+// 		for(i=0;i<favoritePuppies.length;i++){
+// 			$('.favorite-puppies').prepend(`
+// 				<a class="puppy-container">
+// 					<img src="${favoritePuppies[i].photo}" class="puppy-thumbnail" />
+// 					<div class="puppy-info">
+// 						<p class="puppy-name">${favoritePuppies[i].name}</p>
+// 						<i class="material-icons puppy-icon">favorite</i>
+// 					</div>
+// 				</a>
+// 			`);
+// 		}
+// 	});
+// }
+
+
+// render list of unique favorites
 function renderFavoritePuppies(){
 	$('.favorite-puppies').html('');
 	$.ajax({url: `/api/adopters/${localStorage.getItem('userId')}`}).done(function(data){
-		favoritePuppies = data.favoritePuppies;
+		let favoritePuppies = data.favoritePuppies;
+	
 		for(i=0;i<favoritePuppies.length;i++){
+	
+			var array = favoritePuppies.map(a => a._id);
+			let uniqueFavoritePuppies = [...new Set(array)];
+
+			// console.log(uniqueFavoritePuppies);
+			// console.log(favoritePuppies[i]);
+
 			$('.favorite-puppies').prepend(`
 				<a class="puppy-container">
 					<img src="${favoritePuppies[i].photo}" class="puppy-thumbnail" />
@@ -94,10 +120,11 @@ function renderFavoritePuppies(){
 	});
 }
 
+
+
+
+
 renderFavoritePuppies();
-
-
-
 
 
 // TO DO
@@ -106,6 +133,6 @@ renderFavoritePuppies();
 // clean up api
 // clean up shelters files - move to v2?
 // fix ui
-// forgot password link on sign in
+// spacing around forgot password link on sign in
 // puppy card collapsed - using puppy-card class in two spaces
 // puppy card expanded

@@ -91,6 +91,12 @@ router.delete('/adopters/:id', (req, res) => {
 });
 
 
+
+
+
+
+// BEGIN PUPPIES
+
 // PUPPIES
 
 // get initial puppies
@@ -146,7 +152,6 @@ router.post('/favorite', (req, res) => {
 			$push:{'favoritePuppies' : req.body.puppyId}
 		}, 
 		{
-			// make this only favorite puppies that don't already exist in favorites
 			safe: true, 
 			upsert: true, 
 			new : true
@@ -157,6 +162,10 @@ router.post('/favorite', (req, res) => {
 		});
 	});
 })
+
+// END USING
+
+
 
 
 
