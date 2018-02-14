@@ -124,7 +124,6 @@ renderFavoritePuppies();
 
 // TO DO
 // tests
-// clean up api
 // clean up shelters files - move to v2?
 // fix ui
 // spacing around forgot password link on sign in
