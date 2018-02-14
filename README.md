@@ -2,6 +2,9 @@
 
   [adopt-a-bull](https://shrouded-bayou-47963.herokuapp.com/) is an app that connects users with ador-a-bull, adopt-a-bull pitbulls. 
 
+  *demo email: demo-adopter@gmail.com*  
+  *demo password: Password123*  
+
   ## v1
 
   allows adopters to:  
@@ -13,7 +16,7 @@
    - contact a shelter about a puppy  
    - view their list of favorited puppies  
   
-  
+
   ## v2
 
   will add support for shelters to:  
