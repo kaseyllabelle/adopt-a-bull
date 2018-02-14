@@ -93,25 +93,18 @@ router.delete('/adopters/:id', (req, res) => {
 
 // PUPPIES
 
-// find puppies
-router.get('/puppies', (req, res) => {
-	Puppies.find().then(_Puppies => res.json(
-		_Puppies.map(puppy => puppy)
-	))
-	.catch(err => {
-		console.error(err);
-		res.status(500).json({message: 'Internal server error'})
-	});
-});
-
-// find puppy by id
-router.get('/puppies/:id', (req, res) => {
-	Puppies
-	.findById(req.params.id)
-	.then(puppy =>res.json(puppy))
-	.catch(err => {
-		console.error(err);
-		res.status(500).json({message: 'Internal server error'})
+// find puppy by position
+router.get('/puppies/:position', (req, res) => { 
+	const allOfThePuppies = Puppies.find().count().exec();
+	return Puppies
+	.find()
+	.limit(~~req.params.position === 0 ? 2 : 1)
+	.skip(~~req.params.position)
+	.exec()
+	.then(data => {
+		data.push({nextPosition: ~~req.params.position + (~~req.params.position === 0) ? 2 : 1});
+		console.log(data);
+		return res.status(203).render('puppy-card-collapsed', {data});
 	});
 });
 

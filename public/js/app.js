@@ -20,7 +20,6 @@ $('form.sign-in').submit(function(e){
 	$.post('/user/sign-in/', $(this).serialize(), function(d){
 		localStorage.setItem('authToken', d.authToken);
 		localStorage.setItem('userId', d.user._id);
-		// window.location.href= d.user.shelterId ? '/main/shelter' : '/main/adopter'
 		window.location.href = '/main/' + d.user._id;
 	});
 });
@@ -28,19 +27,36 @@ $('form.sign-in').submit(function(e){
 
 // puppies
 
-
 // make adopter only able to favorite unique puppy once
 // make list of favorites appear in the sidebar
 // retain list of favorites (if refresh, don't disappear)
 // get conditional / shift working
+// email shelter
 
+
+
+// get all puppies
+
+function getPuppies(puppyId = 0){
+	console.log(puppyId);
+	$(".testing-this-thing").load('/api/puppies/' + puppyId);
+	// $.ajax({url: '/api/puppies/' + puppyId})
+	// .done(function(data){
+	// 	currentPuppy = data;
+	// 	console.log(currentPuppy);
+	// 	$('.discovery-wrapper').html('');
+	// });
+}
+if($('.js-main-adopters')){
+	getPuppies();
+}
 
 // expand puppy card
 
 $('.discovery-wrapper').on('click', '.puppy-card-info', function(){
 	if($('.puppy-card-icon').text() === 'info'){
 		$('.puppy-card-icon').text('cancel');
-		$('.puppy-card-container').append(``);
+		$('.puppy-card-container').append('');
 	}
 	else{
 		$('.puppy-card-icon').text('info');
@@ -58,14 +74,6 @@ $('.next').click(function(){
 	currentPuppy = puppies[0];
 	$('.puppy-card-thumbnail').attr('src', currentPuppy.photo);
 	$('.puppy-card-name').attr('src', currentPuppy.name);
-});
-
-// get next puppy from db
-$.ajax({url: "http://localhost:8080/api/puppies"}).done(function(data){
-	puppies = data;
-	currentPuppy = data[0];
-	console.log(currentPuppy);
-	$('.discovery-wrapper').html(``);
 });
 
 
@@ -87,10 +95,12 @@ $('.favorite').click(function(){
 	});
 });
 
+
 // list of favorites
 // move this to ejs
+
 function getFavoritePuppies(){
-	$.ajax({url: `http://localhost:8080/api/adopters/${localStorage.getItem('userId')}`}).done(function(data){
+	$.ajax({url: `/api/adopters/${localStorage.getItem('userId')}`}).done(function(data){
 		console.log(data);
 		favoritePuppies = data.favoritePuppies;
 		for(i=0;i<favoritePuppies.length;i++){
@@ -108,5 +118,3 @@ function getFavoritePuppies(){
 }
 
 getFavoritePuppies();
-
-// email shelter

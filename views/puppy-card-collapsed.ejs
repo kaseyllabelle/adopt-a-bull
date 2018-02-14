@@ -1,10 +1,10 @@
 <p class="section-header section-header-main">discover puppies</p>
 <div class="discovery-wrapper">
 	<div class="puppy-card">
-		<div class="puppy-card-container" data-puppyId="<%currentPuppy._id%>">
-			<img src="<%currentPuppy.photo%>" class="puppy-card-thumbnail" />
+		<div class="puppy-card-container" data-puppyId="<%=data[0]._id%>">
+			<img src="<%=data[0].photo%>" class="puppy-card-thumbnail" />
 			<div class="puppy-card-info">
-				<p class="puppy-card-name"><%currentPuppy.name%></p>
+				<p class="puppy-card-name"><%=data[0].name%></p>
 				<i class="material-icons puppy-card-icon">info</i>
 			</div>
 		</div>
