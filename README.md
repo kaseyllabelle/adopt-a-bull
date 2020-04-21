@@ -1,6 +1,6 @@
 # adopt-a-bull
 
-  [adopt-a-bull](https://shrouded-bayou-47963.herokuapp.com/) is an app that connects users with ador-a-bull, adopt-a-bull pitbulls. 
+  [adopt-a-bull](https://adopt-a-bull.herokuapp.com/) is an app that connects users with ador-a-bull, adopt-a-bull pitbulls. 
 
   *demo email: demo-adopter@gmail.com*  
   *demo password: Password123*  
